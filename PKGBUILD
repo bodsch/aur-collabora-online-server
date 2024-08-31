@@ -154,7 +154,7 @@ _upstream_handle_dep() {
 }
 
 if [ ${#source[*]} -eq 5 ]; then
-  curl -s "${source[0]}" >Packages
+  curl --silent --location "${source[0]}" >Packages
   pkgver=$(
     awk -F$'\n' -vRS= '/^Package:[[:blank:]]*coolwsd\n/ && /_(all|amd64)\.deb\n/{print}' Packages \
     | sed -n 's/^Version:[[:blank:]]*\(.*\)-.*/\1/p'
@@ -201,6 +201,7 @@ if [ ${#source[*]} -eq 5 ]; then
   _main_debs="$(IFS='|'; echo "${__main_debs[*]}")"
   _i18n_debs="$(IFS='|'; echo "${__i18n_debs[*]}")"
 fi
+
 # some debug:
 echo "MAIN DEBs: $_main_debs" >&2
 echo "I18N DEBs: $_i18n_debs" >&2
@@ -270,7 +271,7 @@ _main_package() {
 After=systemd-tmpfiles-setup.service' usr/lib/systemd/system/coolwsd.service
 
   # keep the cert-making script from the Dockerfile for reference
-  # install -Dm0755 "$srcdir"/mkcert_example.sh usr/share/doc/coolwsd/example.mkcert.sh
+  install -Dm0755 "$srcdir"/mkcert_example.sh usr/share/doc/coolwsd/example.mkcert.sh
 
   # do not provide libreoffice for the desktop (seems broken…)
   rm -rf opt/collaboraoffice/share/xdg
