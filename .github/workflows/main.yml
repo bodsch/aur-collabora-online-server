@@ -1,0 +1,58 @@
+---
+
+name: Make Repository
+
+on:
+  push:
+    branches:
+      - main
+      - debug
+      - feature/**
+  schedule:
+    - cron: "21 4 * * 0"
+
+jobs:
+  pkgbuild:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    #- name: import GPG key
+    #  run: |
+    #    sudo pacman-key --recv-keys F51A91A5EE001AA5D77D53C4C6E319C334410682
+
+    - name: Makepkg Build and Check
+      id: makepkg
+      uses: Pinghigh/pkgbuild-action@v5.1
+      with:
+        makepkgArgs: "--skippgpcheck --noconfirm"
+
+    - name: Print Package Files
+      run: |
+        echo "Successfully created the following package archive"
+        echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: archlinux:latest
+  #
+  #   steps:
+  #     - name: Prepare Arch Linux
+  #       run: |
+  #         pacman -Syu base-devel zsh p7zip --noconfirm --needed --noprogressbar
+  #
+  #     - name: check out the codebase.
+  #       uses: actions/checkout@v2
+  #       with:
+  #         path: 'aur-icingadb'
+  #
+  #     - name: build icingadb
+  #       run: |
+  #         cd aur-icingadb
+  #         makepkg --cleanbuild --noprogressbar --clean --force --noconfirm
+  #
+  #     - name: List generated Files
+  #       run: ls -1 > ${{ github.workspace }}/files.txt
