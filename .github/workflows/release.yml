@@ -39,4 +39,5 @@ jobs:
         with:
           files: |
             ${{ steps.makepkg.outputs.pkgfile0 }}
+            ${{ steps.makepkg.outputs.pkgfile1 }}
           token: ${{ github.token }}
