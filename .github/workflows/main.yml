@@ -45,14 +45,14 @@ jobs:
 
       # Uncomment to upload the package as an artifact
       - name: Upload Package Archive ${{ steps.makepkg.outputs.pkgfile0 }}
-        id: upload_package
+        id: upload_first_package
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.makepkg.outputs.pkgfile0 }}
           path: ${{ steps.makepkg.outputs.pkgfile0 }}
 
       - name: Upload Package Archive ${{ steps.makepkg.outputs.pkgfile1 }}
-        id: upload_package
+        id: upload_second_package
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.makepkg.outputs.pkgfile1 }}
