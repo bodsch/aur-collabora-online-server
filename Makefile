@@ -9,3 +9,6 @@ geninteg:
 
 srcinfo:
 	makepkg --printsrcinfo > .SRCINFO
+
+clean:
+	rm -f *.deb
