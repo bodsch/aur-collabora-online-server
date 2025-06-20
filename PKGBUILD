@@ -6,7 +6,7 @@ _I18N_EREGEX='de'
 _pkgname=collabora-online-server
 
 # taking version of coolwsd:
-pkgver=25.04.2-3
+pkgver=25.04.3.1
 pkgrel=1
 arch=('x86_64')
 url="https://www.collaboraonline.com/code/"
@@ -207,27 +207,27 @@ fi
 
 # some debug:
 
-echo "-----------------------------------------------------------"
+echo "-----------------------------------------------------------"  >&2
 __VERSION=$(
 	echo "${_main_debs}" | 
 		tr '|' '\n' | 
-		grep 'code-brand_' | 
+		grep 'coolwsd_' | 
 		grep -oP '\d{2}\.\d{2}\.\d+(?:\.\d+)?-\d+' | 
 		head -n1
 )
-echo "VERSION: ${__VERSION}"
-echo ""
-echo "MAIN DEBs:"
+echo "VERSION: ${__VERSION}"  >&2
+echo ""  >&2
+echo "MAIN DEBs:"  >&2
 IFS='|' read -ra URLS <<< "$_main_debs"
 for url in $(printf "%s\n" "${URLS[@]}" | sort); do
-  echo "  $url"
+  echo "  $url"  >&2
 done
-echo "I18N DEBs"
+echo "I18N DEBs"  >&2
 IFS='|' read -ra URLS <<< "$_i18n_debs"
 for url in $(printf "%s\n" "${URLS[@]}" | sort); do
-  echo "  $url"
+  echo "  $url"  >&2
 done
-echo "-----------------------------------------------------------"
+echo "-----------------------------------------------------------"  >&2
 
 unset _upstream_handle_dep _upstream_equiv _upstream_deps __main_debs __i18n_debs
 # <<<< END OF DYNAMIC ADAPTATION OF PKGBUILD

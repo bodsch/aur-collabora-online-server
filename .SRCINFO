@@ -1,27 +1,3 @@
------------------------------------------------------------
-VERSION: 25.04.2-3
-
-MAIN DEBs:
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/code-brand_25.04.2-3_all.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraoffice_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-calc_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-core_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-draw_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-en-us_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-extension-pdf-import_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-graphicfilter_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-images_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-impress_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-math_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-ooofonts_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-ooolinguistic_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-writer_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraoffice-ure_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/coolwsd_25.04.3.1-1_amd64.deb
-I18N DEBs
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraofficebasis-de_25.04.3-1_amd64.deb
-  https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraoffice-dict-de_25.04.3-1_amd64.deb
------------------------------------------------------------
 pkgbase = collabora-online-server
 	pkgver = 25.04.3.1
 	pkgrel = 1
