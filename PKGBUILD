@@ -206,26 +206,30 @@ if [ ${#source[*]} -eq 5 ]; then
 fi
 
 # some debug:
+sorted_main_deps=$(printf "%s\n" "${__main_debs[@]}" | sort)
+sorted_i18n_deps=$(printf "%s\n" "${__i18n_debs[@]}" | sort)
 
 echo "-----------------------------------------------------------"  >&2
 __VERSION=$(
-	echo "${_main_debs}" | 
-		tr '|' '\n' | 
-		grep 'coolwsd_' | 
-		grep -oP '\d{2}\.\d{2}\.\d+(?:\.\d+)?-\d+' | 
+	echo "${_main_debs}" |
+		tr '|' '\n' |
+		grep 'coolwsd_' |
+		grep -oP '\d{2}\.\d{2}\.\d+(?:\.\d+)?-\d+' |
 		head -n1
 )
 echo "VERSION: ${__VERSION}"  >&2
 echo ""  >&2
+
 echo "MAIN DEBs:"  >&2
-IFS='|' read -ra URLS <<< "$_main_debs"
-for url in $(printf "%s\n" "${URLS[@]}" | sort); do
-  echo "  $url"  >&2
+for u in $(printf "%s\n" "$sorted_main_deps[@]}")
+do
+  echo "  $u"  >&2
 done
+
 echo "I18N DEBs"  >&2
-IFS='|' read -ra URLS <<< "$_i18n_debs"
-for url in $(printf "%s\n" "${URLS[@]}" | sort); do
-  echo "  $url"  >&2
+for u in $(printf "%s\n" "${sorted_i18n_deps[@]}")
+do
+  echo "  $u"  >&2
 done
 echo "-----------------------------------------------------------"  >&2
 

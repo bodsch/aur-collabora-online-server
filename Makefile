@@ -1,6 +1,6 @@
 #
 
-.PHONY: geninteg srcinfo check clean
+.PHONY: geninteg srcinfo check build clean
 
 default: geninteg
 
@@ -8,10 +8,13 @@ geninteg:
 	makepkg --geninteg
 
 srcinfo:
-	makepkg --printsrcinfo > .SRCINFO
+	makepkg --printsrcinfo >| .SRCINFO
 
 check:
 	makepkg --check
 
+build:
+	makepkg --skippgpcheck --noconfirm --force
+
 clean:
-	rm -f *.deb
+	rm -rf *.deb *.tar.zst src

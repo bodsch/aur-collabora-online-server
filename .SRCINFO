@@ -1,7 +1,7 @@
 pkgbase = collabora-online-server
 	pkgver = 25.04.3.1
 	pkgrel = 1
-	url = https://www.collaboraonline.com/repos/CollaboraOnline/CODE/collaboraoffice-dict-de_25.04.3-1_amd64.deb
+	url = https://www.collaboraonline.com/code/
 	install = install
 	arch = x86_64
 	license = MPL-2.0

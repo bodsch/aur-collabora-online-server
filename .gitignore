@@ -2,5 +2,5 @@
 Packages
 *.deb
 /src/
-/pkg/
-/*pkg.tar.*
+/pkg
+*.pkg.tar.*
