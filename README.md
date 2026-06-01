@@ -11,5 +11,5 @@ https://aur.archlinux.org/collabora-online-server-nodocker.git
 
 ```bash
 makepkg --geninteg
-makepkg --printsrcinfo > .SRCINFO
+makepkg --printsrcinfo >| .SRCINFO
 ```
