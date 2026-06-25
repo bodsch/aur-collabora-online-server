@@ -26,7 +26,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.0
         with:
           ref: ${{ matrix.release_tag }}
 
@@ -46,14 +46,14 @@ jobs:
       # Uncomment to upload the package as an artifact
       - name: Upload Package Archive ${{ steps.makepkg.outputs.pkgfile0 }}
         id: upload_first_package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: ${{ steps.makepkg.outputs.pkgfile0 }}
           path: ${{ steps.makepkg.outputs.pkgfile0 }}
 
       - name: Upload Package Archive ${{ steps.makepkg.outputs.pkgfile1 }}
         id: upload_second_package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: ${{ steps.makepkg.outputs.pkgfile1 }}
           path: ${{ steps.makepkg.outputs.pkgfile1 }}
